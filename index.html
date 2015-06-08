@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!--Inline style because the website is very small currently. Shouldn't be hard to migrate later--> 
 		<style>
 			#div
 			{
@@ -8,11 +9,19 @@
 				display:block;
 				overflow:auto;
 				height:100%;
+
 			}
 			body
 			{
-
 				height:100%;
+			}
+			#bio
+			{
+				top:0%;
+				bottom:0%;
+				right:0%;
+				left:50%;
+				background: rgba(150,150,150,.3);
 			}
 		</style>
 
@@ -20,7 +29,9 @@
 	
 	<body>
 	<div id="div">
-		test
+		<div id="bio">
+			test
+		</div>
 	</div>
 	</body>
 </html>
