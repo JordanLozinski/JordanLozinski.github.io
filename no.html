@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>	
+	
+	<div id="swag" style="font-size: 180px; font-family: Impact, sans-serif; text-align: center;">NO</div>
+
+    <script>
+		function stick()
+		{
+			rdmcolor = Math.floor(Math.random() * 16777215);
+    		rdmcolor = rdmcolor.toString(16); //changes to hex
+    		document.getElementById("swag").style.color = '#' + rdmcolor;  
+			setTimeout('stick()',10);
+		}
+
+		stick();
+	</script>
+</body>
+
+</html>
