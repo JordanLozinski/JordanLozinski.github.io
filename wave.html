@@ -31,9 +31,9 @@
 			var rx = Math.random() * $body.outerWidth();
 			var ry = Math.random() * $body.outerHeight();
 			var dropRadius = 10;
-			var strength = 0.02 + Math.random() * 0.02;
+			var strength = 0.02;
 			$body.ripples('drop', rx, ry, dropRadius, strength);
-		}, 100);
+		}, 500);
 		setInterval(function ()
 		{
 			var $body = $('body');
