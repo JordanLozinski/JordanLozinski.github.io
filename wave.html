@@ -40,7 +40,7 @@
 			var wx = $body.outerWidth();
 			var wy = $body.outerHeight();
 			var dropRadius = 10;
-			var strength = 0.01;
+			var strength = 0.03;
 			for(var i = 0; i <= 1; i+=0.1)
 			{
 				$body.ripples('drop',(wx)*(1-i),wy*i, dropRadius, strength);
@@ -82,7 +82,6 @@ body
 		<source src="media/audio/dressdown.mp3" type="audio/mpeg">
 	</audio>
 	<div id="main">
-		<p style="font-size: 72px">Test</p>
 	</div>
 </body>
 
