@@ -18,14 +18,27 @@
 			$('.error').show().text(e);
 			console.log(e);
 		}
-		function anim(){
+		function bgtranslate(){
 			$('#main').animate({
 				'background-position-x': '-=100px',
 				'background-position-y': '-=50px'}, 5000, 'swing', function(){
-					anim();
-				});
+					bgtranslate();
+				}
+			);
 		}
-		anim();
+		bgtranslate();
+		function bgsize()
+		{
+			$('#main').animate({
+				'background-size': '%50'}, 2000, 'easeInOutSine'
+			);
+			$('#main').animate({
+				'background-size': '%100'}, 2000, 'easeInOutSine', function (){
+					bgsize();
+				}
+			);
+		}
+		bgsize();
 		setInterval(function() {
 			var $body = $('body');
 			var rx = Math.random() * $body.outerWidth();
