@@ -11,7 +11,7 @@
 				dropRadius: 50,
 				perturbance: 0.04,	
 				resolution: 128,
-				interactive: true,
+				interactive: false,
 			});
 		}
 		catch(e) {
@@ -21,25 +21,46 @@
 		function anim(){
 			$('#main').animate({
 				'background-position-x': '-=100px',
-				'background-position-y': '-=50px'}, 5000, 'linear', function(){
+				'background-position-y': '-=50px'}, 5000, 'swing', function(){
 					anim();
 				});
 		}
 		anim();
 		setInterval(function() {
 			var $main = $('#main');
-			var x = Math.random() * $main.outerWidth();
-			var y = Math.random() * $main.outerHeight();
+			var rx = Math.random() * $main.outerWidth();
+			var ry = Math.random() * $main.outerHeight();
 			var dropRadius = 50;
-			var strength = 0.16 + Math.random() * 0.04;
-
-			$main.ripples('drop', x, y, dropRadius, strength);
-		}, 100);	
+			var strength = 0.04 + Math.random() * 0.04;
+			$main.ripples('drop', rx, ry, dropRadius, strength);
+		}, 100);
+		setInterval(function ()
+		{
+			var $main = $('#main');
+			var wx = $main.outerWidth();
+			var wy = $main.outerHeight();
+			var dropRadius = 30;
+			var strength = 0.16;
+			for(var i = 0; i <= 1; i+=0.1)
+			{
+				$main.ripples('drop',(wx)*(1-i),wy*i, dropRadius, strength);
+			}
+		}, 1000);
 	});	
 </script>
 <style>
+html
+{
+	min-height:100%;
+	position:relative;
+}
+
 body
 {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	height:100%;
 	background: url("media/pic/eye2.jpg") repeat;
 	background-size: cover;
 }
@@ -49,6 +70,9 @@ body
 	background: url("media/pic/wave.png") 100% repeat;
 	height: 100%;
 	width: 100%;
+	padding: 0;
+	margin: 0;
+	border: 0;
 }
 </style>
 </head>
