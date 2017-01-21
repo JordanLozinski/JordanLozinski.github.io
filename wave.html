@@ -7,9 +7,9 @@
 	$(document).ready(function () {
 		console.log("Loaded");
 		try{
-			$("#main").ripples({
-				dropRadius: 50,
-				perturbance: 0.04,	
+			$("body").ripples({
+				dropRadius: 10,
+				perturbance: 0.01,	
 				resolution: 128,
 				interactive: false,
 			});
@@ -26,24 +26,24 @@
 				});
 		}
 		anim();
-		setInterval(function() {
-			var $main = $('#main');
-			var rx = Math.random() * $main.outerWidth();
-			var ry = Math.random() * $main.outerHeight();
-			var dropRadius = 50;
-			var strength = 0.04 + Math.random() * 0.04;
-			$main.ripples('drop', rx, ry, dropRadius, strength);
-		}, 100);
+		/*setInterval(function() {
+			var $body = $('body');
+			var rx = Math.random() * $body.outerWidth();
+			var ry = Math.random() * $body.outerHeight();
+			var dropRadius = 10;
+			var strength = 0.01 + Math.random() * 0.01;
+			$body.ripples('drop', rx, ry, dropRadius, strength);
+		}, 100);*/
 		setInterval(function ()
 		{
-			var $main = $('#main');
-			var wx = $main.outerWidth();
-			var wy = $main.outerHeight();
-			var dropRadius = 30;
-			var strength = 0.16;
+			var $body = $('body');
+			var wx = $body.outerWidth();
+			var wy = $body.outerHeight();
+			var dropRadius = 10;
+			var strength = 0.01;
 			for(var i = 0; i <= 1; i+=0.1)
 			{
-				$main.ripples('drop',(wx)*(1-i),wy*i, dropRadius, strength);
+				$body.ripples('drop',(wx)*(1-i),wy*i, dropRadius, strength);
 			}
 		}, 1000);
 	});	
@@ -61,7 +61,7 @@ body
 	margin: 0;
 	border: 0;
 	height:100%;
-	background: url("media/pic/eye2.jpg") repeat;
+	background: url("media/pic/eye2.jpg");
 	background-size: cover;
 }
 
@@ -82,7 +82,7 @@ body
 		<source src="media/audio/dressdown.mp3" type="audio/mpeg">
 	</audio>
 	<div id="main">
-
+		<p style="font-size: 72px">Test</p>
 	</div>
 </body>
 
