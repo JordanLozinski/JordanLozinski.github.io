@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.ripples-min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		console.log("Loaded");
+		try{
+			$("#main").ripples({
+				dropRadius: 50,
+				perturbance: 0.04,	
+				resolution: 128,
+				interactive: true,
+			});
+		}
+		catch(e) {
+			$('.error').show().text(e);
+			console.log(e);
+		}
+		function anim(){
+			$('#main').animate({
+				'background-position-x': '-=100px',
+				'background-position-y': '-=50px'}, 5000, 'linear', function(){
+					anim();
+				});
+		}
+		anim();
+		setInterval(function() {
+			var $main = $('#main');
+			var x = Math.random() * $main.outerWidth();
+			var y = Math.random() * $main.outerHeight();
+			var dropRadius = 50;
+			var strength = 0.16 + Math.random() * 0.04;
+
+			$main.ripples('drop', x, y, dropRadius, strength);
+		}, 100);	
+	});	
+</script>
+<style>
+body
+{
+	background: url("media/pic/eye2.jpg") repeat;
+	background-size: cover;
+}
+
+#main
+{
+	background: url("media/pic/wave.png") 100% repeat;
+	height: 100%;
+	width: 100%;
+}
+</style>
+</head>
+
+<body>
+	<audio autoplay loop>
+		<source src="media/audio/dressdown.mp3" type="audio/mpeg">
+	</audio>
+	<div id="main">
+
+	</div>
+</body>
+
+</html>
